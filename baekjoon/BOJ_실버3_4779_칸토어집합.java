@@ -12,8 +12,7 @@ public class BOJ_실버3_4779_칸토어집합 {
 			sb.append("-");
 			
 			for (int i = 1; i <= N; i++) {
-				StringBuilder sbCopy = new StringBuilder();
-				sbCopy.append(sb);
+				StringBuilder sbCopy = sb;
 //				String sbCopy = sb.toString();
 				for (int j = 0; j < Math.pow(3, i - 1); j++) sb.append(" ");		
 				sb.append(sbCopy);
