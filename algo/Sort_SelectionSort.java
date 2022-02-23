@@ -8,18 +8,21 @@ public class Sort_SelectionSort {
 		int N = nums.length;
 		
 		// 오름차순
-		// 몇번 돌건지 + 정렬 위치(뒷쪽부터 채워감)		
-		// 2개 남았을때 정렬 이후에는 더 정렬할 필요 없으므로 등호 없음
-		for (int i = 0; i > 0 ; i--) {
-			for (int j = 0; j < i; j++) {
-				// 인접한 두 수 중 앞으 수가 더 크면 
-				if (nums[j] > nums[j + 1]) {
-					// 서로 교환
-					int temp = nums[j];
-					nums[j] = nums[j + 1];
-					nums[j + 1] = temp;					
+		// 몇번 돌건지 + 정렬 위치(앞쪽부터 채워감)		
+		// 2개 남았을때 정렬 이후에는 더 정렬할 필요 없으므로 N - 1
+		for (int i = 0; i < N - 1 ; i++) {
+			int minIdx = i;
+			for (int j = i + 1; j < N; j++) {
+				// minIdx 와 j 인덱스에 해당하는 두 수 중 j 인덱스 값이 작으면 
+				if (nums[minIdx] > nums[j]) {
+					// minIdx 를 j로 덮어쓰기
+					minIdx = j;
 				}				
 			}
+			// 각 탐색에서 가장 작은 값이 i 의 자리에 오도록 교환
+			int temp = nums[i];
+			nums[i] = nums[minIdx];
+			nums[minIdx] = temp;
 		}
 		System.out.println(Arrays.toString(nums));
 		
