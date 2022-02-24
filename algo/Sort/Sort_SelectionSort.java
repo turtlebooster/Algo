@@ -1,4 +1,4 @@
-package algo;
+package algo.Sort;
 
 import java.util.Arrays;
 
@@ -25,19 +25,5 @@ public class Sort_SelectionSort {
 			nums[minIdx] = temp;
 		}
 		System.out.println(Arrays.toString(nums));
-		
-		/*
-		// 오름차순 (N이든 N-1이든 어차피 밑에 반복문을 수행하지 않게 할 수 있음.)
-		for (int i = 0; i < N; i++) {
-			for(int j = 1; j < N-i; j++) {
-				if(nums[j-1] > nums[j]) {
-					int tmp = nums[j];
-					nums[j] = nums[j-1];
-					nums[j-1] = tmp;
-				}
-			}
-		}
-		System.out.println(Arrays.toString(nums));
-		*/
 	}
 }
