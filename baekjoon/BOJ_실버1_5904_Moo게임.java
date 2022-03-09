@@ -1,9 +1,40 @@
 package baekjoon;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BOJ_실버1_5904_Moo게임 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int N = sc.nextInt();
+		char ans = 'o';
+		
+		while (true) {
+			int len = 0;
+			int moo = 2;
+			while (2 * len + ++moo < N) {			
+				len = 2 * len + moo;			
+			}
+			if (2 * len + moo == N) {
+				ans = 'o';
+				break;
+			}
+			else if (len + 1 == N) {
+				ans = 'm';
+				break;
+			}
+			else if (len + moo >= N) {
+				ans = 'o';
+				break;
+			}
+			else {
+				N -= len + moo;
+			}
+		}
+		System.out.println(ans);
+		sc.close();
+	}	
+	/*
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -36,26 +67,7 @@ public class BOJ_실버1_5904_Moo게임 {
 		}
 		
 		System.out.println(ans);
-		
-		/*
-		String moo = "moo";
-		for (int k = 1; moo.length() < N; k++) moo = nextMoo(moo, k);
-		System.out.println(moo.charAt(N - 1));		
-		 */
-		
 		sc.close();
-	}
-	/* 메모리 초과
-	public static String nextMoo (String moo, int k) {
-		
-		String nmoo = moo + "m";
-		
-		for (int i = 0; i < k + 2; i++) {
-			nmoo += "o";
-		}
-		nmoo += moo;
-		
-		return nmoo;
 	}
 	*/
 }
