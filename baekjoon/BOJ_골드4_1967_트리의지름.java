@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class BOJ_골4_1967_트리의지름 {
+public class BOJ_골드4_1967_트리의지름 {
 	public static class Node {
 		List<Link> link = new ArrayList<>();
 	}
