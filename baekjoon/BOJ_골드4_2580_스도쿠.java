@@ -67,7 +67,7 @@ public class BOJ_골드4_2580_스도쿠 {
 					return true;
 				}
 				
-				// 틀렸으면 다시 빼
+				// 틀렸으면 다시 빼기
 				row[pos[0]] ^= 1<<num;
 				col[pos[1]] ^= 1<<num;
 				box[pos[0] / 3][pos[1] / 3] ^= 1<<num;
