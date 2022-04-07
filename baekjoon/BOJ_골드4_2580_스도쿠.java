@@ -23,17 +23,17 @@ public class BOJ_골드4_2580_스도쿠 {
 		row = new int[9];
 		col = new int[9];
 		box = new int[3][3];
-		int num;
 		
 		// 데이터 입력
 		for (int i = 0; i < 9; i++) {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < 9; j++) {
-				num = Integer.parseInt(st.nextToken());
+				int num = Integer.parseInt(st.nextToken());
 				sudoku[i][j] = num;
-				row[i] |= 1<<num;
-				col[j] |= 1<<num;
-				box[i / 3][j / 3] |= 1<<num;
+				int bit = 1<<num;
+				row[i] |= bit;
+				col[j] |= bit;
+				box[i / 3][j / 3] |= bit;
 				// 빈칸 수 파악
 				if (sudoku[i][j] == 0) blank.add(new int[] {i, j});
 			}
@@ -56,11 +56,13 @@ public class BOJ_골드4_2580_스도쿠 {
 		
 		// 남은 수가 있으면 넣고 다음 자리 넣어보기
 		for (int num = 1; num <= 9; num++) {
-			if ((check & 1<<num) == 0) {
+			int bit = 1<<num;
+			if ((check & bit) == 0) {
 				
-				row[pos[0]] |= 1<<num;
-				col[pos[1]] |= 1<<num;
-				box[pos[0] / 3][pos[1] / 3] |= 1<<num;
+				
+				row[pos[0]] |= bit;
+				col[pos[1]] |= bit;
+				box[pos[0] / 3][pos[1] / 3] |= bit;
 				
 				if (dropTheNum()) {
 					sudoku[pos[0]][pos[1]] = num;
@@ -68,9 +70,9 @@ public class BOJ_골드4_2580_스도쿠 {
 				}
 				
 				// 틀렸으면 다시 빼기
-				row[pos[0]] ^= 1<<num;
-				col[pos[1]] ^= 1<<num;
-				box[pos[0] / 3][pos[1] / 3] ^= 1<<num;
+				row[pos[0]] ^= bit;
+				col[pos[1]] ^= bit;
+				box[pos[0] / 3][pos[1] / 3] ^= bit;
 			}
 		}
 		

@@ -1,5 +1,52 @@
 package baekjoon;
 
+import java.util.Scanner;
+
+// 병찬쌤 풀이
+public class BOJ_실버1_1992_쿼드트리 {
+	static char[][] map;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		
+		map = new char[N][];
+		// 배열로 바로 받아버리기때문에 열의 수는 적지 않는 것이 메모리 낭비를 덜 하게 됨
+		for (int i = 0; i < N; i++) {
+			map[i] = sc.next().toCharArray();
+		}
+		
+		solve(0, 0, N);		
+		sc.close();
+	}
+	
+	private static void solve(int x, int y, int n) {
+		if (check(x, y, n)) {
+			System.out.print(map[x][y]);
+			return;
+		}
+		System.out.print("(");
+		// x + i * n / 2, y + j * n / 2
+		int sn = n / 2;
+		for (int i = 0; i <= 1; i++) {
+			for (int j = 0; j <= 1; j++) {
+				solve(x + i * sn, y + j * sn, sn);
+			}
+		}
+		System.out.print(")");
+	}
+	
+	private static boolean check(int x, int y, int n) {
+		for (int i = x; i < x + n; i++) {
+			for (int j = y; j < y + n; j++) {
+				if (map[x][y] != map[i][j]) return false;
+			}
+		}
+		return true;
+	}
+	
+}
+
+/*
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,7 +61,8 @@ public class BOJ_실버1_1992_쿼드트리 {
 		
 		
 		int N = Integer.parseInt(br.readLine());
-		image = new char[N][N];
+		// 배열로 바로 받아버리기때문에 열의 수는 적지 않는 것이 메모리 낭비를 덜 하게 됨
+		image = new char[N][];
 		for (int i = 0; i < N; i++) {
 			image[i] = br.readLine().toCharArray();
 		}
@@ -50,7 +98,7 @@ public class BOJ_실버1_1992_쿼드트리 {
 	}
 	
 }
-	
+*/	
 	
 
 /*
