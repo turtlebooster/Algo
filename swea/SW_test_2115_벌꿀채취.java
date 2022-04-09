@@ -20,8 +20,8 @@ public class SW_test_2115_벌꿀채취 {
 	static Honey[][] honey, choosed;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		int T = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int T = Integer.parseInt(st.nextToken());
 		for (int t = 1; t <= T; t++) {
 			st = new StringTokenizer(br.readLine());
 			N = Integer.parseInt(st.nextToken());
