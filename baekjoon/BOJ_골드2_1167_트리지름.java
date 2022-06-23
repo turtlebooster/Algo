@@ -24,6 +24,8 @@ public class BOJ_골드2_1167_트리지름 {
 		StringTokenizer st;
 		
 		V = Integer.parseInt(br.readLine());
+		
+		// 인접 리스트 생성
 		adjList = new ArrayList[V + 1];
 		for (int i = 1; i <= V; i++) adjList[i] = new ArrayList<>();
 		
@@ -38,6 +40,8 @@ public class BOJ_골드2_1167_트리지름 {
 			
 		}
 		
+		// 임의의 점에서 가장 먼 노드 구하기
+		// 구한 노드로부터 가장 먼 노드 구해서 거리를 정답으로 저장
 		int ans = getMaxDist(getMaxDist((int)(Math.random() * V + 1)).e).d;	
 		
 		System.out.println(ans);
@@ -51,9 +55,11 @@ public class BOJ_골드2_1167_트리지름 {
 		
 		Node res = new Node(s, 0);
 		
+		// BFS
 		while(!q.isEmpty()) {
 			Node c = q.poll();
 			
+			// 가장 멀리 있는 노드 저장
 			if (res.d < c.d) {
 				res = c;
 			}			
