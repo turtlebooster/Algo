@@ -3,7 +3,8 @@ package baekjoon;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BOJ_골드5_2293_동전1 {
+public class BOJ_골드5_2294_동전2 {
+	private static final int INF = 10000001;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -15,21 +16,18 @@ public class BOJ_골드5_2293_동전1 {
 			coins[i] = sc.nextInt();
 		}
 		
-		// 작은 순으로 동전 정렬
-		Arrays.sort(coins);
-		
 		int[] dp = new int[k + 1];
 		
-		// 초기화
-		dp[0] = 1;
+		Arrays.fill(dp, INF);
+		dp[0] = 0;
 		
 		for (int i = 0; i < n; i++) {
 			for (int j = coins[i]; j <= k; j++) {
-				dp[j] += dp[j - coins[i]];
+				dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
 			}
 		}
-		
-		System.out.println(dp[k]);		
+
+		System.out.println(dp[k] == INF ? -1 : dp[k]);		
 		sc.close();
 	}
 }
