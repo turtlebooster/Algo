@@ -3,49 +3,28 @@ package baekjoon;
 import java.util.Scanner;
 
 public class BOJ_실버1_1629_곱셈 {
+	public static int MOD;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
 		int A = sc.nextInt();
 		int B = sc.nextInt();
-		int C = sc.nextInt();
+		MOD = sc.nextInt();
 		
-		long remain = A % C;
-		int cnt = 1;
-		
-		while (cnt * 2 <= B) {
-			remain *= remain;
-			cnt *= 2;
-			
-			if(remain > C) remain %= C;
-		}
-		
-		for (int i = 0; i < B - cnt; i++) {
-			remain *= A % C;
-
-			if (remain > C) remain %= C; 
-		}		
-		
-		System.out.println(remain);		
+		System.out.println(pow(A, B));
 		sc.close();
 	}
-	/*
-	// 시간 초과
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	
+	public static long pow(long A, int B) {
+		A %= MOD;
+		if (B == 1) return A;
 		
-		int A = sc.nextInt();
-		int B = sc.nextInt();
-		int C = sc.nextInt();
-		
-		long remain = A % C;
-		for (int i = 1; i < B; i++) {
-			remain *= A % C;
-			if (remain > C) remain %= C;			
+		long res = pow(A, B / 2);
+		res = res * res % MOD; 
+		if (B % 2 != 0) {
+			res = res * A % MOD;
 		}
 		
-		System.out.println(remain);		
-		sc.close();
+		return res;
 	}
-	*/
 }
