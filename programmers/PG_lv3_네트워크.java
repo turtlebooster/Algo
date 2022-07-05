@@ -31,8 +31,7 @@ public class PG_lv3_네트워크 {
         
         // DFS
         boolean[] check = new boolean[n];        
-        
-        int curr;
+                
         for (int i = 0; i < n; i++) {
             if (check[i]) continue;
             answer++;            
