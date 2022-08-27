@@ -49,20 +49,16 @@ public class SW_test_no1_낚시터자리잡기 {
  		int d = 0;
 		// 게이트 위치
 		int p = gates[order[idx]][0];
-		boolean flag;
 		for (int i = 0; i < gates[order[idx]][1] - 1; i++) {
-			flag = false;
 			while(true) {
 				if (p + d < N && !seats[p + d]) {
 					seats[p + d] = true;
 					sum += d + 1;
-					flag = true;
 					break;
 				} else if (p - d >= 0 && !seats[p - d]) {
 					seats[p - d] = true;
 					sum += d + 1;
 					d++;
-					flag = true;
 					break;
 				}
 				d++;
@@ -70,7 +66,7 @@ public class SW_test_no1_낚시터자리잡기 {
 		}
 		
 		// 마지막 낚시꾼 배치
-		flag = false;
+		boolean flag = false;
 		boolean[] origin = Arrays.copyOf(seats, N);
 		while(true) {
 			if (p + d < N && !seats[p + d]) {
@@ -82,12 +78,10 @@ public class SW_test_no1_낚시터자리잡기 {
 			if (p - d >= 0 && !seats[p - d]) {
 				seats[p - d] = true;
  				calc(order, gates, seats, idx + 1, sum + d + 1);
- 				seats = origin;
 				flag = true;
 			}
 			if (flag) break;
 			d++;
 		}
-		seats = origin;
 	}
 }
