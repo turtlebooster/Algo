@@ -13,7 +13,8 @@ public class BOJ_골드5_2251_물통 {
         }
 
         // 담길 수 있는 물의 양
-        Set<Integer> set = new HashSet<>();
+//        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new TreeSet<>();
         set.add(max[2]);
 
         // BFS
@@ -67,15 +68,16 @@ public class BOJ_골드5_2251_물통 {
         }
 
         // 배열에 저장 및 정렬
-        int[] ans = new int[set.size()];
-        int idx = 0;
-        for (int amount : set) {
-            ans[idx++] = amount;
-        }
+//        int[] ans = new int[set.size()];
+//        int idx = 0;
+//        for (int amount : set) {
+//            ans[idx++] = amount;
+//        }
 
-        Arrays.sort(ans);
+//        Arrays.sort(ans);
 
-        System.out.println(Arrays.toString(ans).replaceAll("[\\[\\,\\]]", ""));
+//        System.out.println(Arrays.toString(ans).replaceAll("[\\[\\,\\]]", ""));
+        System.out.println(set.toString().replaceAll("[\\[\\,\\]]", ""));
         sc.close();
     }
 }
