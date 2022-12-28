@@ -5,5 +5,5 @@
 
 
 알고리즘 스터디 병행
-- 5문제 / 1주일
+- 6문제 / 1주일
 - [스터디 링크](https://cherry-diascia-425.notion.site/12ec7e7c308a4623acb5461f6d1e19c8)
